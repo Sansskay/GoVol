@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoVol — Волонтёрство рядом</title>
+    <link rel="stylesheet"href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🤝 GoVol</div>
+            <div class="nav-links">
+                <a href="#activities">Активности</a>
+                <a href="#" id="organizerBtn">Я организатор</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Помогай рядом с собой,<br><span class="gradient-text">без лишнего поиска</span></h1>
+            <p class="hero-subtitle">Все волонтёрские активности твоего города — в одном месте. Найди то, что подходит именно тебе, за 30 секунд.</p>
+            <button class="btn-primary" onclick="scrollToActivities()">Найти активность →</button>
+        </div>
+    </header>
+
+    <!-- Фильтры и лента -->
+    <main id="activities" class="main-container">
+        <div class="section-header">
+            <h2>Активности сейчас</h2>
+            <div class="filters">
+                <button class="filter-chip active" data-filter="all">Все</button>
+                <button class="filter-chip" data-filter="today">Сегодня</button>
+                <button class="filter-chip" data-filter="week">На неделе</button>
+                <button class="filter-chip" data-filter="beginner">Для новичков</button>
+            </div>
+        </div>
+
+        <div id="activities-list" class="activities-grid">
+            <!-- Карточки подгружаются через JS -->
+        </div>
+    </main>
+
+    <!-- AI-ассистент: плавающая кнопка -->
+    <div id="ai-widget">
+        <button id="ai-toggle" class="ai-fab">✨</button>
+        <div id="ai-chat" class="ai-chat-window hidden">
+            <div class="ai-chat-header">
+                <span>🤖 AI-помощник</span>
+                <button id="ai-close">✕</button>
+            </div>
+            <div id="ai-messages" class="ai-messages">
+                <div class="ai-message bot">
+                    Привет! Расскажи, что тебе интересно — например «хочу помочь животным на выходных» — и я подберу подходящие активности 🌿
+                </div>
+            </div>
+            <div class="ai-input-row">
+                <input type="text" id="ai-input" placeholder="Напиши, что ищешь...">
+                <button id="ai-send">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
